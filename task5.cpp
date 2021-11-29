@@ -5,7 +5,7 @@ int main()
     string str,ls,rs;
     getline(cin,str);
     char n;
-    int k=0,f=0;
+    int k=0,f=0,f1=0,f3=0;
     n=str[0];
     
     for (int i = 0; i < str.length(); i++)
@@ -28,28 +28,37 @@ int main()
         cout<<"left"<<endl;
         f=99;
     }
-    else if(ls[ls.length()-1]==n||rs[rs.length()-1]==n)
+    if(ls[ls.length()-1]==n||rs[rs.length()-1]==n)
     {
         cout<<"right"<<endl;
-        
+        f3=99;
     }
-    else
-    {
+    
+    
         for(int i=1;i<ls.length()-1;i++){
-             if(ls[i]==n||rs[i]==n)
+             if(ls[i]==n)
                 {
                    cout<<"general"<<endl;
-                   f=i;
+                   f1=i;
+                   break;
                 }
         }
-        if (f==0)
+        for(int i=1;i<rs.length()-1;i++){
+             if(rs[i]==n)
+                {
+                   cout<<"general"<<endl;
+                   f1=i;
+                   break;
+                }
+        }
+        if (f1==0&&f==0&&f3==0)
         {
             cout<<"no"<<endl;
         }
         
 
         
-    }
+    
     // termination
     if(f==99){
         char temp;
@@ -91,25 +100,25 @@ int main()
             cout<<"left"<<endl;
             f=99;
         }
-        else if(str[str.length()-1]==n)
+        if(str[str.length()-1]==n)
         {
             cout<<"right"<<endl;
+            f3=99;
             
         }
-        else
-        {
+        
             for(int i=1;i<str.length()-1;i++){
                 if(str[i]==n)
                     {
                     cout<<"general"<<endl;
-                    f=i;
+                    f1=i;
                     }
             }
-            if (f==0)
+            if (f1==0&&f==0&&f3==0)
             {
                 cout<<"no"<<endl;
             }   
-        }
+        
         // termination
         if(f==99){
         char temp;
